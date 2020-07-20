@@ -2,12 +2,24 @@ import React from "react";
 
 class Gallery extends React.Component {
   render() {
+    let alternate = "https://img.icons8.com/wired/64/000000/no-camera.png";
+
     return (
       <div>
-        Gallery Component
         {this.props.items.map((item, index) => {
-          let { title } = item.volumeInfo;
-          return <div key={index}> {title}</div>;
+          let { title, imageLinks, infoLink } = item.volumeInfo;
+          return (
+            <a key={index} className="book" href={infoLink} target="_blank">
+              <img
+                className="book-img"
+                src={
+                  imageLinks.thumbnail !== undefined ? imageLinks.thumbnail : ""
+                }
+                alt="book image"
+              />
+              <div className="book-title">{title}</div>
+            </a>
+          );
         })}
       </div>
     );
