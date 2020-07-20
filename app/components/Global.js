@@ -1,13 +1,15 @@
 // App.js
 import React, { Component } from "react";
 import { FormGroup, FormControl, InputGroup, Button, Glyphicon } from "react-bootstrap";
+import Gallery from './Gallery';
 
 class Global extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      query: ''
+      query: '',
+      items: []
     }
   }
   search() {
@@ -15,7 +17,15 @@ class Global extends Component {
     fetch(`${BASE_URL}${this.state.query}`,
     {method: "GET"})
     .then(response => response.json())
-    .then(json=>console.log(json))
+    .then(json=> {
+      console.log(json)
+      let { items } = json;
+      this.setState({items});
+      console.log(this.state);
+      let x = { it: [{3:"a"}, {5:"aaa"}, {6:"aaa"}]};
+      let {it} = x;
+      console.log(' x is ',it)
+    })
   }
 
   render() {
@@ -40,6 +50,7 @@ class Global extends Component {
             </InputGroup.Append>
           </InputGroup>
         </FormGroup>
+        <Gallery items={this.state.items}/>
       </div>
     );
   }
