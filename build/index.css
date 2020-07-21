@@ -32,8 +32,17 @@
   opacity: 0.75;
   width: 214px;
   margin-left: 3px;
-  text-align: center;
+  text-align: left;
   position: absolute;
   bottom: 0;
   padding: 10px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 16px;     /* fallback */
+  max-height: 175px;      /* fallback */
+  -webkit-line-clamp: 10; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  white-space: normal; 
 }
