@@ -13,7 +13,9 @@ class Gallery extends React.Component {
               <img
                 className="book-img"
                 src={
-                  imageLinks.thumbnail !== undefined ? imageLinks.thumbnail : ""
+                  imageLinks.thumbnail !== undefined
+                    ? imageLinks.thumbnail
+                    : alternate
                 }
                 alt="book image"
               />
