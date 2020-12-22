@@ -18,13 +18,8 @@ class Global extends Component {
     {method: "GET"})
     .then(response => response.json())
     .then(json=> {
-      console.log(json)
       let { items } = json;
       this.setState({items});
-      console.log(this.state);
-      let x = { it: [{3:"a"}, {5:"aaa"}, {6:"aaa"}]};
-      let {it} = x;
-      console.log(' x is ',it)
     })
   }
 
